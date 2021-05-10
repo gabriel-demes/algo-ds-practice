@@ -1,5 +1,6 @@
 #start with unordered array
 #compare consecutive elements. if left > right then swap them
+#O(n^2) 
 
 def bubble_sort(array):
     n = len(array)

@@ -25,3 +25,9 @@ def selection_sort(array):
                 array[position] = temp
 
 
+def bubble_sort(array):
+    n = len(array)
+    for p in range(n-1, 0, -1):
+        for i in rang(n-1):
+            if array[i] > array[i+1]:
+                array[i], array[i+1] = array[i+1], array[i]
