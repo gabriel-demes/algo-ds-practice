@@ -111,11 +111,32 @@ class SinglyLinkedList{
         this.length--
         return myNode
     }
+
+    reverse(){
+        let node = this.head
+        this.head = this.tail
+        this.tail = node
+        let prev = null
+        let next
+        for(let i = 0; i < this.length; i++){
+            next = node.next
+            node.next = prev
+            prev = node
+            node = next
+        }
+        
+        return this
+        
+
+    }
 }
 
 let list = new SinglyLinkedList()
+list.push(1)
+list.push(2)
+list.push(3)
+list.push(4)
+list.push(5)
 console.log(list)
-console.log(list.push(1))
-console.log(list.push(2))
-console.log(list.push(3))
-console.log(list.get(-1))
+console.log(list.reverse())
+
