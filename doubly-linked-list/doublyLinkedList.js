@@ -56,7 +56,7 @@ class DoublyLinkedList{
     }
     unshift(val){
         let newNode = new Node(val)
-        if(this.length ===0){
+        if(this.length === 0){
             this.head = newNode
             this.tail = newNodw
         }else{
@@ -66,5 +66,33 @@ class DoublyLinkedList{
         }
         this.length++
         return this
+    }
+    get(index){
+        if(index < 0 || index >= this.length) return null
+        if(index <= this.length/2){
+            let current = this.head
+            let counter = 0
+
+            while(counter !== index){
+                current = current.next
+                counter++
+            }
+            return current
+        }else{
+            let current = this.tail
+            let counter = this.length - 1
+            while(counter !== index){
+                current = current.prev
+                counter--
+            }
+            return current
+        }
+    }
+    set(index, val){
+        const node = this.get(index)
+        if(!node) return false
+        node.val = val
+        return true
+
     }
 }
