@@ -93,6 +93,25 @@ class DoublyLinkedList{
         if(!node) return false
         node.val = val
         return true
-
+    }
+    insert(index, val){
+        if(index === 0)return this.unshift(val)
+        if(index === this.length) return this.push(val)
+        const oldNode = this.get(index)
+        if(oldNode !== null){
+            const newNode = new Node(val)
+            newNode.prev = oldNode.prev
+            oldNode.prev.next = newNode
+            oldNode.prev = newNode
+            newNode.next = oldNode
+            return true
+        }
+        return false
     }
 }
+
+let list = new DoublyLinkedList()
+list.push("harry")
+list.push("sam")
+list.push("bob")
+list.push("jack")
