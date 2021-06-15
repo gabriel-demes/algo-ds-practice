@@ -35,8 +35,22 @@ class DoublyLinkedList{
         }else{
             this.tail = this.tail.prev
             this.tail.next = null
+            node.prev = null
         }
-        node.prev = null
+        this.length--
+        return node
+    }
+    shift(){
+        if(this.length === 0) return undefined
+        let node = this.head
+        if(this.length === 1){
+            this.head = null
+            this.tail = null
+        }else{
+            this.head = node.next
+            this.head.prev = null
+            node.next = null
+        }
         this.length--
         return node
     }
