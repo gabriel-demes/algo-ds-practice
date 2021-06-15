@@ -2,7 +2,7 @@ class Node {
     constructor(val){
         this.val = val
         this.next = null
-        this.previous = null
+        this.prev = null
     }
 }
 
@@ -19,10 +19,25 @@ class DoublyLinkedList{
             this.tail = node
         }else{
             this.tail.next = node
-            node.previous = this.tail
+            node.prev = this.tail
             this.tail = node
         }
         this.length++
         return this
+    }
+
+    pop(){
+        if(!this.head) return undefined
+        let node = this.tail
+        if(this.length === 1){
+            this.head = null
+            this.tail = null
+        }else{
+            this.tail = this.tail.prev
+            this.tail.next = null
+        }
+        node.prev = null
+        this.length--
+        return node
     }
 }
