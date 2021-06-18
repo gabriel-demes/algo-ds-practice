@@ -40,9 +40,25 @@ class BST{
             }
         }
         return this
-
-
     }
+
+    find(val){
+        if(!this.root) return false
+        let cur = this.root
+        let found = false 
+
+        while(!found && cur){
+            if(val < cur.val){
+                cur = cur.left;
+            }else if(val > cur.val){
+                cur = cur.right
+            }else{
+                found = true
+            }
+        }
+        return found ? cur : undefined
+    }
+
 }
 
 const tree = new BST()
@@ -51,8 +67,8 @@ console.log(tree.insert(5))
 console.log(tree.insert(2))
 console.log(tree.insert(6))
 console.log(tree.insert(13))
-console.log(tree.insert(13))
-
+console.log(tree.find(13))
+console.log(tree.find(28))
 
 
 
