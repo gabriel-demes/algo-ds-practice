@@ -68,13 +68,13 @@ const dfsPreOrder = (tree) => {
     let arr = []
     let cur = tree.root
     const traverse = (node) => {
-        arr.push(node.val)
         if(node.left){
             traverse(node.left)
         }
         if(node.right){
             traverse(node.right)
         }
+        arr.push(node.val)
     }
     traverse(cur)
 
